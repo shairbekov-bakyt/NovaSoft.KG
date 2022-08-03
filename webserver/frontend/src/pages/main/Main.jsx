@@ -10,7 +10,7 @@ const Main = () => {
             {/*HELLO*/}
             <Header/>
             <Banner/>
-            <Services/>
+            {/* <Services/> */}
         </div>
     );
 };
