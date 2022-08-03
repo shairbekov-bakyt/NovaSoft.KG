@@ -1,0 +1,74 @@
+.header{
+  height: 70px;
+  background-color: hsla(0,0%,9%,.85);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  button{
+    color: lightgray;
+  }
+  .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    .logo{
+      font-size: 24px;
+      color: #c6ff00;
+    }
+    .header__list{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 100%;
+      .header__item{
+        height: 100%;
+        &:last-child{
+          button{
+            span{
+              border-right: none;
+            }
+          }
+        }
+        button{
+          height: 100%;
+          transition: .2s;
+          border-bottom: 1px solid hsla(0,0%,9%,.85);
+          &:hover{
+            border-bottom: 1px solid #c6ff00;
+            color: white;
+          }
+          span{
+            width: 100%;
+            padding: 0 40px;
+            text-align: center;
+            border-right: 1px solid lightgray;
+          }
+        }
+      }
+    }
+    .consultation{
+      p{
+        font-size: 12px;
+        padding-bottom: 5px;
+        color: lightgray;
+      }
+    }
+  }
+}
+
+@media(max-width: 1200px){
+  .header{
+    .container{
+      display: none;
+    }
+    .header__list{
+      display: none;
+    }
+    .consultation{
+      display: none;
+    }
+  }
+}
