@@ -34,6 +34,24 @@ const Header = () => {
 
   const [openMenu, setOpenMenu] = useState(false);
   const [consultation, setConsultation] = useState(false);
+
+  const openMenuHandler = () => {
+    setOpenMenu(true)
+    document.body.style.overflow = 'hidden'
+  }
+  const openConsultationHandler = () => {
+    setConsultation(true)
+    document.body.style.overflow = 'hidden'
+  }
+  const closeMenuHandler = () => {
+    setOpenMenu(false)
+    document.body.style.overflow = 'visible'
+  }
+  const closeConsultationHandler = () => {
+    setConsultation(false)
+    document.body.style.overflow = 'visible'
+  }
+
   return (
     <div className={"header"}>
       <div className={"container"}>
@@ -54,20 +72,20 @@ const Header = () => {
           <LanguageMenu />
           <div
             className="list__consultation"
-            onClick={() => setConsultation(true)}
+            onClick={openConsultationHandler}
           >
             <span></span>
             <span></span>
             <span></span>
           </div>
-          <div className="btn__burger" onClick={() => setOpenMenu(true)}>
+          <div className="btn__burger" onClick={openMenuHandler}>
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
-        <Menu headerList={headerList} openMenu={openMenu} onClose={() => setOpenMenu(false)}/>
-        <Contact consultation={consultation}  onClose={() => setConsultation(false)} />
+        <Menu headerList={headerList} openMenu={openMenu} onClose={closeMenuHandler}/>
+        <Contact consultation={consultation}  onClose={closeConsultationHandler} />
       </div>
     </div>
   );
