@@ -1,3 +1,5 @@
-.header__languageMenu{
-
+@media (max-width:575px) {
+    .header__languageMenu {
+        display: none;
+    }
 }
