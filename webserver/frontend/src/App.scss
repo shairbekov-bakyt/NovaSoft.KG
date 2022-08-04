@@ -17,6 +17,16 @@ a{
 
 }
 
+section{
+  padding: 80px 0;
+}
+h1{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 48px;
+  padding-bottom: 80px;
+}
+
 button{
   display: block;
   background: inherit;
@@ -61,4 +71,3 @@ a, button{
     padding: 0 20px;
   }
 }
-// HEllO
