@@ -8,7 +8,7 @@ import website from '../../images/services/website.png'
 
 const Services = () => {
     return (
-        <div className={'services'}>
+        <section className={'services'}>
             <div className="container">
                 <h1>
                     Our services
@@ -28,7 +28,7 @@ const Services = () => {
                     />
                 </ul>
             </div>
-        </div>
+        </section>
     );
 };
 
