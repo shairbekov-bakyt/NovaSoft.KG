@@ -25,6 +25,7 @@ body::-webkit-scrollbar-thumb {
   border: none;
   outline: none;
   list-style-type: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a{
