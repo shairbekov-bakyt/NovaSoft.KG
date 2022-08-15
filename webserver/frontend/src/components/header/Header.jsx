@@ -1,91 +1,51 @@
-import React, { useId } from "react";
-import { useState } from "react";
-import "./header.scss";
-import LanguageMenu from "./languageMenu/LanguageMenu";
-import Menu from "./menu/Menu";
-import Contact from "./contact/Contact";
-import { ReactComponent as Logo } from "../../images/icons/logo.svg";
-
-
+import React, { useState } from "react";
+import "./Header.scss";
+import { useTranslation } from "react-i18next";
+import logo from "../../assets/images/logo.png";
+import Language from "../Language/Language";
+import { ReactComponent as ArrowUp } from "../../assets/icons/up_arrow.svg";
+import BurgerMenu from "./BurgerMenu/BurgerMenu";
 const Header = () => {
-  const headerList = [
-    {
-      name: "About us",
-      url: "/about",
-    },
-    {
-      name: "Projects",
-      url: "/projects",
-    },
-    {
-      name: "Services",
-      url: "/services",
-    },
-    {
-      name: "Blog",
-      url: "/blog",
-    },
-    {
-      name: "Contacts",
-      url: "/contacts",
-    },
+  const { t } = useTranslation();
+  const [dropDown, serDropDown] = useState(false);
+  const [burgerMenu, setBurgerMenu] = useState(false);
+
+  const links = [
+    { href: "/" },
+    { href: "/" },
+    { href: "/" },
+    { href: "/" },
+    { href: "/" },
+    { href: "/" },
   ];
-  const listItemId = useId();
-
-  const [openMenu, setOpenMenu] = useState(false);
-  const [consultation, setConsultation] = useState(false);
-
-  const openMenuHandler = () => {
-    setOpenMenu(true)
-    document.body.style.overflow = 'hidden'
-  }
-  const openConsultationHandler = () => {
-    setConsultation(true)
-    document.body.style.overflow = 'hidden'
-  }
-  const closeMenuHandler = () => {
-    setOpenMenu(false)
-    document.body.style.overflow = 'visible'
-  }
-  const closeConsultationHandler = () => {
-    setConsultation(false)
-    document.body.style.overflow = 'visible'
-  }
-
   return (
-    <div className={"header"}>
-      <div className={"container"}>
-        <div className="logo">
-          <Logo className="logo__icon" />
-          <p className="logo__text">NovaSoft</p>
-        </div>
-        <ul className={"header__list"}>
-          {headerList.map((item, index) => (
-            <li className={"header__item"} key={`${listItemId}__${index}`}>
-              <button type={"button"}>
-                <span>{item.name}</span>
-              </button>
+    <div className="header">
+      <div className="container">
+        <img src={logo} alt="logo" />
+        <ul className="nav">
+          {links.map((item, index) => (
+            <li key={index}>
+              <a href={item.href}>{t(`navLinks.${index}`)}</a>
             </li>
           ))}
+          <li onClick={() => serDropDown(!dropDown)} >
+          <p>{t("navLinks.6")}</p>
+            <ArrowUp className={`arrow ${dropDown ? "active_row" : ""}`} />
+          </li>
+          <Language dropDown={dropDown} serDropDown={serDropDown} />
         </ul>
-        <div className="header__setting">
-          <LanguageMenu />
-          <div
-            className="list__consultation"
-            onClick={openConsultationHandler}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div className="btn__burger" onClick={openMenuHandler}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+        <div className="burgerMenu" onClick={() => setBurgerMenu(!burgerMenu)}>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <Menu headerList={headerList} openMenu={openMenu} onClose={closeMenuHandler}/>
-        <Contact consultation={consultation}  onClose={closeConsultationHandler} />
+        {burgerMenu ? (
+          <BurgerMenu
+            dropDown={dropDown}
+            serDropDown={serDropDown}
+            links={links}
+          />
+        ) : null}
       </div>
     </div>
   );
