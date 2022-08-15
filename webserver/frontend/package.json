@@ -12,7 +12,14 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
+    "react-i18next": "^11.18.3",
     "sass": "^1.54.0",
+    "react-hook-form": "^7.34.1",
+    "swiper": "^8.3.2",
+    "i18next": "^21.9.0",
+    "i18next-browser-languagedetector": "^6.1.5",
+    "i18next-http-backend": "^1.4.1",
+    "js-cookie": "^3.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

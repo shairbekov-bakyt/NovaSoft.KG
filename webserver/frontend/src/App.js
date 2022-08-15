@@ -1,13 +1,12 @@
 import './App.scss';
-import { Routes, Route} from "react-router-dom";
-import Main from "./pages/main/Main";
+import Header from './components/Header/Header';
+import Home from './pages/Home/Home';
 
 function App() {
   return (
     <div className="App">
-        <Routes>
-          <Route path={'/'} element={<Main/>}/>
-        </Routes>
+      <Header/>
+        <Home/>
     </div>
   );
 }
